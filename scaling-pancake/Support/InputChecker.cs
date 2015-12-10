@@ -31,5 +31,18 @@ namespace scaling_pancake
                 throw new ArgumentOutOfRangeException();
             }
         }
+
+        public static void EmailContainsChecker(string input)
+        {
+            if (input.Contains("@") && input.Contains(".com") || input.Contains(".dk"))
+            {
+                    
+            }
+        }
+
+        public static void PasswordContainsChecker(string input)
+        {
+            
+        }
     }
 }
