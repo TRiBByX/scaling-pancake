@@ -18,7 +18,7 @@ namespace scaling_pancake
 
         public static void NegativeNumberChecker(int input)
         {
-            if (input > 1)
+            if (input < 1)
             {
                 throw new ArgumentOutOfRangeException();
             }
