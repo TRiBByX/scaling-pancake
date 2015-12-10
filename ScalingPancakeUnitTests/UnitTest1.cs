@@ -27,7 +27,7 @@ namespace ScalingPancakeUnitTests
         {
             try
             {
-                Customer albert = new Customer(123, 123, 123);
+                Customer albert = new Customer("", "", "");
             }
             catch (ArgumentOutOfRangeException)
             {
