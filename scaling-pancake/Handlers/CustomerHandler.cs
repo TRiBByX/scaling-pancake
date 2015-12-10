@@ -14,6 +14,10 @@ namespace scaling_pancake
 
         public static void AddCustomer(string name, string email, string password)
         {
+            InputChecker.EmailContainsATChecker(email);
+            InputChecker.EmailContainsDotChecker(email);
+            InputChecker.PasswordContainsChecker(password);
+
             Customers.Add(new Customer(name, email, ComputeMd5(password)));
         }
 

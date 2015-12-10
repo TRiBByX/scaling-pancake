@@ -32,17 +32,30 @@ namespace scaling_pancake
             }
         }
 
-        public static void EmailContainsChecker(string input)
+        public static void EmailContainsATChecker(string input)
         {
-            if (input.Contains("@") && input.Contains(".com") || input.Contains(".dk"))
+            if (!input.Contains("@"))
             {
-                    
+                throw new ArgumentOutOfRangeException("Your email has to contain @");
+            }
+        }
+
+        public static void EmailContainsDotChecker(string input)
+        {
+            string[] words = input.Split('@');
+
+            if (!words[1].Contains("."))
+            {
+                throw new ArgumentOutOfRangeException("Your email has to contain a .'whatever' ending");
             }
         }
 
         public static void PasswordContainsChecker(string input)
         {
-            
+            if (!input.Any(c => char.IsUpper(c)) && !input.Any(c => char.IsDigit(c)))
+            {
+                throw new ArgumentException("Your passphrase has to have at least one uppercase letter and one number");
+            }
         }
     }
 }
