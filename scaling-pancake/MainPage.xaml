@@ -16,6 +16,7 @@
         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
             <StackPanel x:Name="spHead" Orientation="Horizontal">
                 <Button x:Name="bTitel" Content="France Vacances" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" BorderThickness="0" Click="bTitel_Click"/>
+                <Button x:Name="button" Content="Button" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
             </StackPanel>
             <StackPanel x:Name="spBody" Orientation="Horizontal">
                 <Grid x:Name="gBody">
