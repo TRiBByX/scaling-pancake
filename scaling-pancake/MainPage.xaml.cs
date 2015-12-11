@@ -22,7 +22,7 @@ namespace scaling_pancake
         {
             InitializeComponent();
 
-            _bodyStackPanels = new List<StackPanel> { spHome, spCreateUser, spUserAccount };
+            _bodyStackPanels = new List<StackPanel> { spHome, spCreateUser, spUserAccount, spUserCreated };
             _bodyToggleButtons = new List<ToggleButton> { tbCreateUser };
             _homeStackPanels = new List<StackPanel> { spHomes, spTrips, spSelectedHome };
             _homeMenuToggleButtons = new List<ToggleButton> { tbHomes, tbTrips };
@@ -43,6 +43,7 @@ namespace scaling_pancake
             spTrips.Visibility = Visibility.Collapsed;
             spAccount.Visibility = Visibility.Collapsed;
             spSelectedHome.Visibility = Visibility.Collapsed;
+            spUserCreated.Visibility = Visibility.Collapsed;
             tbHomes.IsChecked = true;
         }
 
@@ -118,6 +119,11 @@ namespace scaling_pancake
         private void bCheckoutBooking_OnClick(object sender, RoutedEventArgs e)
         {
             // Not implemented yet.
+        }
+
+        private void bCreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleMenu(null, spUserCreated, _bodyStackPanels, _bodyToggleButtons);
         }
     }
 }
