@@ -46,15 +46,15 @@ namespace scaling_pancake
 
             if (!words[1].Contains("."))
             {
-                throw new ArgumentOutOfRangeException("Your email has to contain a .'whatever' ending");
+                throw new ArgumentException("Your email has to contain a .'whatever' ending");
             }
         }
 
         public static void PasswordContainsChecker(string input)
         {
-            if (!input.Any(c => char.IsUpper(c)) && !input.Any(c => char.IsDigit(c)))
+            if (input.Length < 6)
             {
-                throw new ArgumentException("Your passphrase has to have at least one uppercase letter and one number");
+                throw new ArgumentOutOfRangeException("Your password has to be at least 6 characters long");
             }
         }
     }
