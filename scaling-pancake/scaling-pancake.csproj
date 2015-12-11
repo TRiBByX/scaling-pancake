@@ -107,6 +107,7 @@
     </Compile>
     <Compile Include="Classes\Booking.cs" />
     <Compile Include="Classes\Customer.cs" />
+    <Compile Include="Classes\Flight.cs" />
     <Compile Include="Classes\Home.cs" />
     <Compile Include="Exceptions\NoLoggedCustomerException.cs" />
     <Compile Include="Exceptions\RentPeriodUnavailableException.cs" />
