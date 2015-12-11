@@ -14,6 +14,7 @@ namespace scaling_pancake
 
         public static void AddCustomer(string name, string email, string password)
         {
+            InputChecker.IsUsernameTaken(Customers, email);
             InputChecker.EmailContainsATChecker(email);
             InputChecker.EmailContainsDotChecker(email);
             InputChecker.PasswordContainsChecker(password);

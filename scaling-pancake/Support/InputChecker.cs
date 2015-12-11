@@ -57,5 +57,16 @@ namespace scaling_pancake
                 throw new ArgumentOutOfRangeException("Your password has to be at least 6 characters long");
             }
         }
+
+        public static void IsUsernameTaken(List<Customer> customers, string email)
+        {
+            foreach (Customer customer in customers)
+            {
+                if (customer.Email == email)
+                {
+                    throw new ArgumentException("Email already used, please enter a valid email");
+                }
+            }
+        }
     }
 }

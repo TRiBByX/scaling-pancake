@@ -35,6 +35,8 @@ namespace scaling_pancake
             CustomerHandler.AddCustomer("Dan", "Dan@hej.dan", "123456");
             CustomerHandler.SaveCustomers();
 
+            CustomerHandler.AddCustomer("Dan", "Dan@hej.dan", "123456");
+
             //CustomerHandler.LoadCustomers();
             //HomeHandler.LoadHomes();
 
