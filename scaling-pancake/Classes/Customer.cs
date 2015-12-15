@@ -18,9 +18,9 @@ namespace scaling_pancake
 
         public Customer(string name, string email, string password)
         {
-            InputChecker.NullChecker(name);
-            InputChecker.NullChecker(email);
-            InputChecker.NullChecker(password);
+            InputChecker.NullOrEmptyChecker(name);
+            InputChecker.NullOrEmptyChecker(email);
+            InputChecker.NullOrEmptyChecker(password);
 
             Id = Count++;
             Name = name;

@@ -8,7 +8,7 @@ using scaling_pancake;
 namespace ScalingPancakeUnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class CustomerUnitTest
     {
         [TestMethod]
         public void CustomerObjectTestMethod()
@@ -17,23 +17,36 @@ namespace ScalingPancakeUnitTests
         }
 
         [TestMethod]
-        public void InputCheckerTestMethod()
-        {
-            InputChecker.NullChecker("");
-        }
-
-        [TestMethod]
-        public void Whatevertestmethod()
+        
+        public void CheckPasswordIsNull()
         {
             try
             {
-                Customer albert = new Customer("", "", "");
+                Customer albert = new Customer("Albert", "yolo@mail.co.uk", null);
+                Assert.Fail();
+                
             }
-            catch (ArgumentOutOfRangeException)
+            catch (ArgumentNullException)
             {
-                Assert.Fail("some shit happened");
+
             }
         }
+        [TestMethod]
+        public void CheckEmaiIsNull()
+        {
+            try
+            {
+                Customer hanne = new Customer("Hanne", null, "1234");
+
+            }
+            catch (ArgumentNullException)
+            {
+
+            }
+        }
+        
+
+    
 
     }
 }

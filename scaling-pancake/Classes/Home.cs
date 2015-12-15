@@ -19,7 +19,7 @@ namespace scaling_pancake
 
         public Home(string address, int rooms, int sqm)
         {
-            InputChecker.NullChecker(address);
+            InputChecker.NullOrEmptyChecker(address);
             InputChecker.NegativeNumberChecker(rooms);
             InputChecker.NegativeNumberChecker(sqm);
 
