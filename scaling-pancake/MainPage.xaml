@@ -79,7 +79,7 @@
                 			<Run Text="User has been created"/>
                         </TextBlock>
                     </StackPanel>
-                    <StackPanel x:Name="spContactInfo" HorizontalAlignment="Center" Height="296" Width="553" VerticalAlignment="Top" Margin="0,50,0,0">
+                    <StackPanel x:Name="spContactInfo" HorizontalAlignment="Center" Height="296" Width="553" VerticalAlignment="Top" Margin="0,50,0,0" d:IsHidden="True">
                         <TextBlock x:Name="tbHeader" TextWrapping="Wrap" Text="Contact information" HorizontalAlignment="Center" FontSize="26.667"/>
                         <TextBlock x:Name="tbContactEmail" TextWrapping="Wrap" Text="Email: helpdesk@francevac.com" Margin="0,30,0,0" HorizontalAlignment="Center" FontSize="18.667"/>
                         <TextBlock x:Name="tbPhone" TextWrapping="Wrap" Text="Phone: +44 (0) 22 7563 5074" Margin="146,18,158,0" HorizontalAlignment="Center" FontSize="18.667" Width="249"/>
@@ -95,6 +95,63 @@
                         	<Run Text=" "/>
                         	<Run Text="   "/>
                         	<Run Text="NW1 6XE "/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="spCard" Height="152" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="608" d:LayoutOverrides="VerticalAlignment" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Card nr." FontSize="16" Margin="20,10,0,0"/>
+                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Margin="99,-25,294,0" Width="215"/>
+                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Margin="20,20,0,0" FontSize="16">
+                    		<Run Text="CSC"/>
+                    		<Run Text="."/>
+                        </TextBlock>
+                        <TextBox x:Name="textBox1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="66" Height="25" Margin="-74,-25,270,0"/>
+                        <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Margin="20,20,0,0" FontSize="16">
+                    		<Run Text="Exp. Date"/>
+                    		<Run Text="."/>
+                    		<Run Text="   Year:"/>
+                    		<Run Text="&#x9;&#x9;     Month:"/>
+                        </TextBlock>
+                        <TextBox x:Name="textBox2" TextWrapping="Wrap" Text="&#xA;" Margin="140,-25,394,0" HorizontalAlignment="Center" Width="30" Height="20"/>
+                        <TextBox x:Name="textBox3" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="30" Margin="50,-30,0,0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spBitCoin" Height="304" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="299" d:LayoutOverrides="HorizontalAlignment" d:IsHidden="True">
+                        <Image x:Name="Bitcoin_euro_png" Height="300" Margin="0" Source="Bitcoin_euro.png" Stretch="Fill" Width="300" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spPayPal" Height="106" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="608" d:LayoutOverrides="VerticalAlignment" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="E-mail:" FontSize="16" Margin="20,10,0,0"/>
+                        <TextBox x:Name="textBox4" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Margin="99,-25,294,0" Width="215"/>
+                        <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Margin="20,20,0,0" FontSize="16" Text="Password"/>
+                        <TextBox x:Name="textBox5" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="215" Height="25" Margin="99,-25,294,0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spCash" Height="186" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="608" d:LayoutOverrides="VerticalAlignment" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock6" TextWrapping="Wrap" FontSize="16" Margin="40,20,0,0">
+                    		<Run Text="Send "/>
+                    		<Run Text="m"/>
+                    		<Run Text="on"/>
+                    		<Run Text="ey"/>
+                    		<Run Text=" to:"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress_Copy" TextWrapping="Wrap" Margin="146,20,221,0" FontSize="18.667" HorizontalAlignment="Center" Width="241" d:LayoutOverrides="TopPosition, BottomPosition">
+                    		<Run Text="Address: "/>
+                    		<Run Text="221b Baker Street"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress2_Copy" TextWrapping="Wrap" Margin="159,10,221,0" FontSize="18.667" HorizontalAlignment="Center" Width="228">
+                    		<Run Text="            "/>
+                    		<Run Text="London"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress3_Copy" TextWrapping="Wrap" Margin="198,10,221,0" FontSize="18.667" HorizontalAlignment="Center" Width="189">
+                    		<Run Text=" "/>
+                    		<Run Text="   "/>
+                    		<Run Text="NW1 6XE "/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="spCheckout" Margin="0,10,10,10" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
+                        <TextBlock x:Name="textBlock7" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="24" Margin="617,80,565,0" Height="91" Width="412" VerticalAlignment="Bottom" TextAlignment="Center">
+                        	<Run Text="Thank you for your purchase."/>
+                        	<LineBreak/>
+                        	<Run/>
+                        	<LineBreak/>
+                        	<Run Text="Your order is now being proceeded"/>
                         </TextBlock>
                     </StackPanel>
                 </Grid>
@@ -130,10 +187,11 @@
                         <TextBlock x:Name="tbBooking" TextWrapping="Wrap" Text="Booking" FontSize="21.333" Margin="20,0,0,0"/>
                         <ListView x:Name="lvBookingCart" ItemsSource="{Binding BookingCart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button x:Name="bCheckoutBooking" Content="Checkout" Width="110" Background="#FF363434" Margin="20,0,0,0">
+                            <Button x:Name="bCheckoutBooking" Content="Checkout" Width="110" Background="#FF363434" Margin="20,0,0,0" Click="bCheckoutBooking_Click">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
                                         <core:InvokeCommandAction Command="{Binding SaveBookingCommand}"/>
+                                        <core:InvokeCommandAction Command="{Binding ClearBookingCommand}"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </Button>

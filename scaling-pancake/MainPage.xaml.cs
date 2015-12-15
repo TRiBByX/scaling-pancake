@@ -22,7 +22,7 @@ namespace scaling_pancake
         {
             InitializeComponent();
 
-            _bodyStackPanels = new List<StackPanel> { spHome, spCreateUser, spUserAccount, spUserCreated, spContactInfo };
+            _bodyStackPanels = new List<StackPanel> { spHome, spCreateUser, spUserAccount, spUserCreated, spContactInfo, spCard, spPayPal, spCash, spBitCoin };
             _bodyToggleButtons = new List<ToggleButton> { tbCreateUser };
             _homeStackPanels = new List<StackPanel> { spHomes, spTrips, spSelectedHome };
             _homeMenuToggleButtons = new List<ToggleButton> { tbHomes, tbTrips };
@@ -45,6 +45,11 @@ namespace scaling_pancake
             spSelectedHome.Visibility = Visibility.Collapsed;
             spUserCreated.Visibility = Visibility.Collapsed;
             spContactInfo.Visibility = Visibility.Collapsed;
+            spCheckout.Visibility = Visibility.Collapsed;
+            spBitCoin.Visibility = Visibility.Collapsed;
+            spCard.Visibility = Visibility.Collapsed;
+            spCash.Visibility = Visibility.Collapsed;
+            spPayPal.Visibility = Visibility.Collapsed;
             tbHomes.IsChecked = true;
         }
 
@@ -130,6 +135,16 @@ namespace scaling_pancake
         private void bContact_Click(object sender, RoutedEventArgs e)
         {
             ToggleMenu(null, spContactInfo, _bodyStackPanels, _bodyToggleButtons);
+        }
+
+        private void bCard_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleMenu(null, spCard, _bodyStackPanels, _bodyToggleButtons);
+        }
+
+        private void bCheckoutBooking_Click(object sender, RoutedEventArgs e)
+        {
+            ToggleMenu(null, spCheckout, _bodyStackPanels, _bodyToggleButtons);
         }
     }
 }
