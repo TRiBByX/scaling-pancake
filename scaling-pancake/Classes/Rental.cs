@@ -26,6 +26,9 @@ namespace scaling_pancake
 
         public Rental(int customerID, DateTime startDate, DateTime endDate)
         {
+            InputChecker.DateChecker(startDate, DateTime.Now);
+            InputChecker.DateChecker(endDate, startDate);
+
             CustomerID = customerID;
             StartDate = new DateTime(startDate.Year, startDate.Month, startDate.Day, 15, 0, 0);
             EndDate = new DateTime(endDate.Year, endDate.Month, endDate.Day, 11, 0, 0);

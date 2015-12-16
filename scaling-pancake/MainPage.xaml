@@ -7,22 +7,29 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
     xmlns:core="using:Microsoft.Xaml.Interactions.Core"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Background="#FF6A5C5C">
+    <Page.Resources>
+        <DataTemplate x:Key="Logo">
+            <Grid Height="119" Width="404">
+                <Image x:Name="Logo_png" Margin="-5,0,0,0" Source="Logo.png" Stretch="Fill" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
     <Page.DataContext>
         <local:MainPageViewModel/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
-            <StackPanel x:Name="spHead" Orientation="Horizontal">
-                <Button x:Name="bTitel" Content="France Vacances" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" BorderThickness="0" Click="bTitel_Click"/>
+    <Grid Background="#66817E7E">
+        <StackPanel d:LayoutOverrides="Width, Height, LeftPosition, RightPosition, TopPosition, BottomPosition">
+            <StackPanel x:Name="spHead" Orientation="Horizontal" Background="#FF3E3C3C">
+                <Button x:Name="bTitel" Content="France Vacances" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" BorderThickness="0" Click="bTitel_Click" ContentTemplate="{StaticResource Logo}"/>
             </StackPanel>
             <StackPanel x:Name="spBody" Orientation="Horizontal">
-                <Grid x:Name="gBody">
-                    <StackPanel x:Name="spHome" HorizontalAlignment="Left" VerticalAlignment="Top">
+                <Grid x:Name="gBody" Height="908" Width="1604" Margin="20,0,0,0" HorizontalAlignment="Center">
+                    <StackPanel x:Name="spHome" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsHidden="True">
                         <StackPanel x:Name="spHomeMenu" Orientation="Horizontal">
-                            <ToggleButton x:Name="tbHomes" Content="Homes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbHomes_Onclick"/>
-                            <ToggleButton x:Name="tbTrips" Content="Trips" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbTrips_Onclick"/>
+                            <ToggleButton x:Name="tbHomes" Content="Homes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbHomes_Onclick" Background="#FF363434" Margin="20,20,20,0"/>
+                            <ToggleButton x:Name="tbTrips" Content="Trips" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbTrips_Onclick" Background="#FF363434" Margin="0,20,0,0"/>
                         </StackPanel>
                         <Grid x:Name="gHome">
                             <StackPanel x:Name="spHomes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
@@ -34,12 +41,12 @@
                                     </interactivity:Interaction.Behaviors>
                                 </ListView>
                             </StackPanel>
-                            <StackPanel x:Name="spTrips" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsHidden="True"/>
+                            <StackPanel x:Name="spTrips" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <StackPanel x:Name="spSelectedHome" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
                                 <TextBlock x:Name="tbSelectedHomeAddress" TextWrapping="Wrap" FontSize="26.667" Text="{Binding SelectedHome.Address}"/>
-                                <DatePicker x:Name="dpStartDate" Date="{Binding StartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                <DatePicker x:Name="dpEndDate" Date="{Binding EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                <Button x:Name="bBookHome" Content="Add To Booking" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                                <DatePicker x:Name="dpStartDate" Date="{Binding StartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,49,20" HorizontalAlignment="Stretch"/>
+                                <DatePicker x:Name="dpEndDate" Date="{Binding EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,65,20" HorizontalAlignment="Stretch"/>
+                                <Button x:Name="bBookHome" Content="Add To Booking" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF363434" Margin="20,0,62,0">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="Click">
                                             <core:InvokeCommandAction Command="{Binding AddHomeToBookingCommand}"/>
@@ -49,11 +56,11 @@
                             </StackPanel>
                         </Grid>
                     </StackPanel>
-                    <StackPanel x:Name="spCreateUser" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" d:IsHidden="True">
-                        <TextBox x:Name="tbCreateUserName" TextWrapping="Wrap" PlaceholderText="Name" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <TextBox x:Name="tbCreateUserEmail" TextWrapping="Wrap" PlaceholderText="Email" Text="{Binding UserEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <PasswordBox x:Name="pbCreateUserPassword" PlaceholderText="Password" Password="{Binding UserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <Button x:Name="bCreateUser" Content="Create" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                    <StackPanel x:Name="spCreateUser" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="517,75,583,0" Width="550" Height="268" d:IsHidden="True">
+                        <TextBox x:Name="tbCreateUserName" TextWrapping="Wrap" PlaceholderText="Name" Text="{Binding UserName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,20" HorizontalAlignment="Center" Width="500"/>
+                        <TextBox x:Name="tbCreateUserEmail" TextWrapping="Wrap" PlaceholderText="Email" Text="{Binding UserEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20" HorizontalAlignment="Center" Width="498"/>
+                        <PasswordBox x:Name="pbCreateUserPassword" PlaceholderText="Password" Password="{Binding UserPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,20" HorizontalAlignment="Center" Width="500"/>
+                        <Button x:Name="bCreateUser" Content="Create User" HorizontalAlignment="Center" VerticalAlignment="Stretch" Background="#FF363434" Click="bCreateUser_Click">
                             <interactivity:Interaction.Behaviors>
                                 <core:EventTriggerBehavior EventName="Click">
                                     <core:InvokeCommandAction Command="{Binding AddCustomerCommand}"/>
@@ -62,32 +69,112 @@
                         </Button>
                     </StackPanel>
                     <StackPanel x:Name="spUserAccount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" d:IsHidden="True">
-                        <TextBlock x:Name="tbUserAccountId" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <TextBlock x:Name="tbUserAccountName" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <TextBlock x:Name="tbUserAccountEmail" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                        <TextBlock x:Name="tbUserAccountPassword" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                        <TextBlock x:Name="tbUserAccountId" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Id, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,15" FontSize="16" d:IsHidden="True"/>
+                        <TextBlock x:Name="tbUserAccountName" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,15" FontSize="16"/>
+                        <TextBlock x:Name="tbUserAccountEmail" TextWrapping="Wrap" Text="{Binding LoggedCustomer.Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,0,15" FontSize="16"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spUserCreated" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock" Height="166" Margin="0,50,0,0" TextWrapping="Wrap" FontSize="24" Width="421" HorizontalAlignment="Center">
+                			<Run Text="&#x9;"/>
+                			<Run Text="User has been created"/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="spContactInfo" HorizontalAlignment="Center" Height="296" Width="553" VerticalAlignment="Top" Margin="0,50,0,0" d:IsHidden="True">
+                        <TextBlock x:Name="tbHeader" TextWrapping="Wrap" Text="Contact information" HorizontalAlignment="Center" FontSize="26.667"/>
+                        <TextBlock x:Name="tbContactEmail" TextWrapping="Wrap" Text="Email: helpdesk@francevac.com" Margin="0,30,0,0" HorizontalAlignment="Center" FontSize="18.667"/>
+                        <TextBlock x:Name="tbPhone" TextWrapping="Wrap" Text="Phone: +44 (0) 22 7563 5074" Margin="146,18,158,0" HorizontalAlignment="Center" FontSize="18.667" Width="249"/>
+                        <TextBlock x:Name="tbAddress" TextWrapping="Wrap" Margin="146,20,166,0" FontSize="18.667" HorizontalAlignment="Center" Width="241">
+                        	<Run Text="Address: "/>
+                        	<Run Text="221b Baker Street"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress2" TextWrapping="Wrap" Margin="159,10,166,0" FontSize="18.667" HorizontalAlignment="Center" Width="228">
+                        	<Run Text="            "/>
+                        	<Run Text="London"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress3" TextWrapping="Wrap" Margin="198,10,166,0" FontSize="18.667" HorizontalAlignment="Center" Width="189">
+                        	<Run Text=" "/>
+                        	<Run Text="   "/>
+                        	<Run Text="NW1 6XE "/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="spCard" Height="152" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="608" d:LayoutOverrides="VerticalAlignment" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Card nr." FontSize="16" Margin="20,10,0,0"/>
+                        <TextBox x:Name="textBox" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Margin="99,-25,294,0" Width="215"/>
+                        <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Margin="20,20,0,0" FontSize="16">
+                    		<Run Text="CSC"/>
+                    		<Run Text="."/>
+                        </TextBlock>
+                        <TextBox x:Name="textBox1" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="66" Height="25" Margin="-74,-25,270,0"/>
+                        <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Margin="20,20,0,0" FontSize="16">
+                    		<Run Text="Exp. Date"/>
+                    		<Run Text="."/>
+                    		<Run Text="   Year:"/>
+                    		<Run Text="&#x9;&#x9;     Month:"/>
+                        </TextBlock>
+                        <TextBox x:Name="textBox2" TextWrapping="Wrap" Text="&#xA;" Margin="140,-25,394,0" HorizontalAlignment="Center" Width="30" Height="20"/>
+                        <TextBox x:Name="textBox3" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="30" Margin="50,-30,0,0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spBitCoin" Height="304" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="299" d:LayoutOverrides="HorizontalAlignment" d:IsHidden="True">
+                        <Image x:Name="Bitcoin_euro_png" Height="300" Margin="0" Source="Bitcoin_euro.png" Stretch="Fill" Width="300" HorizontalAlignment="Left"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spPayPal" Height="106" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="608" d:LayoutOverrides="VerticalAlignment" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="E-mail:" FontSize="16" Margin="20,10,0,0"/>
+                        <TextBox x:Name="textBox4" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Margin="99,-25,294,0" Width="215"/>
+                        <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Margin="20,20,0,0" FontSize="16" Text="Password"/>
+                        <TextBox x:Name="textBox5" TextWrapping="Wrap" Text="" HorizontalAlignment="Center" Width="215" Height="25" Margin="99,-25,294,0"/>
+                    </StackPanel>
+                    <StackPanel x:Name="spCash" Height="186" VerticalAlignment="Top" Margin="500,217,0,0" HorizontalAlignment="Left" Width="608" d:LayoutOverrides="VerticalAlignment" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock6" TextWrapping="Wrap" FontSize="16" Margin="40,20,0,0">
+                    		<Run Text="Send "/>
+                    		<Run Text="m"/>
+                    		<Run Text="on"/>
+                    		<Run Text="ey"/>
+                    		<Run Text=" to:"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress_Copy" TextWrapping="Wrap" Margin="146,20,221,0" FontSize="18.667" HorizontalAlignment="Center" Width="241" d:LayoutOverrides="TopPosition, BottomPosition">
+                    		<Run Text="Address: "/>
+                    		<Run Text="221b Baker Street"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress2_Copy" TextWrapping="Wrap" Margin="159,10,221,0" FontSize="18.667" HorizontalAlignment="Center" Width="228">
+                    		<Run Text="            "/>
+                    		<Run Text="London"/>
+                        </TextBlock>
+                        <TextBlock x:Name="tbAddress3_Copy" TextWrapping="Wrap" Margin="198,10,221,0" FontSize="18.667" HorizontalAlignment="Center" Width="189">
+                    		<Run Text=" "/>
+                    		<Run Text="   "/>
+                    		<Run Text="NW1 6XE "/>
+                        </TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="spCheckout" Margin="0,10,10,10" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
+                        <TextBlock x:Name="textBlock7" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="24" Margin="617,80,565,0" Height="91" Width="412" VerticalAlignment="Bottom" TextAlignment="Center">
+                        	<Run Text="Thank you for your purchase."/>
+                        	<LineBreak/>
+                        	<Run/>
+                        	<LineBreak/>
+                        	<Run Text="Your order is now being proceeded"/>
+                        </TextBlock>
                     </StackPanel>
                 </Grid>
-                <StackPanel x:Name="spSidebar">
-                    <Grid x:Name="gAccount">
+                <StackPanel x:Name="spSidebar" Height="938" Width="298" VerticalAlignment="Top" Background="#FF7E7E7E">
+                    <Grid x:Name="gAccount" Margin="0,50,0,10">
                         <StackPanel x:Name="spLogin" HorizontalAlignment="Left" VerticalAlignment="Top">
-                            <TextBlock x:Name="tbLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Login" FontSize="21.333"/>
-                            <TextBox x:Name="tbLoginEmail" TextWrapping="Wrap" PlaceholderText="Email" Text="{Binding LoginEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
-                            <PasswordBox x:Name="pbLoginPassword" PlaceholderText="Password" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            <TextBlock x:Name="tbLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Login" FontSize="21.333" Margin="20,0,0,0"/>
+                            <TextBox x:Name="tbLoginEmail" TextWrapping="Wrap" PlaceholderText="Email" Text="{Binding LoginEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,0,10" Width="250"/>
+                            <PasswordBox x:Name="pbLoginPassword" PlaceholderText="Password" Password="{Binding LoginPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,0,10"/>
                             <StackPanel Orientation="Horizontal" Height="38">
-                                <Button x:Name="bLogin" Content="Login" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110" Click="bLogin_Click">
+                                <Button x:Name="bLogin" Content="Login" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110" Click="bLogin_Click" Background="#FF363434" Margin="20,0,0,0">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="Click">
                                             <core:InvokeCommandAction Command="{Binding LoginCommand}"/>
                                         </core:EventTriggerBehavior>
                                     </interactivity:Interaction.Behaviors>
                                 </Button>
-                                <ToggleButton x:Name="tbCreateUser" Content="Create User" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbCreateUser_OnClick"/>
+                                <ToggleButton x:Name="tbCreateUser" Content="Create User" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbCreateUser_OnClick" Background="#FF363434"/>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel x:Name="spAccount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" d:IsHidden="True">
-                            <Button x:Name="bAccountName" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding LoggedCustomer.Name}" Click="bAccountName_Click"/>
-                            <Button x:Name="bLogout" Content="Logout" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="bLogout_Click">
+                        <StackPanel x:Name="spAccount" HorizontalAlignment="Left" VerticalAlignment="Top" Width="270" d:IsHidden="True">
+                            <Button x:Name="bAccountName" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Content="{Binding LoggedCustomer.Name}" Click="bAccountName_Click" Margin="20,0,0,20"/>
+                            <Button x:Name="bLogout" Content="Logout" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="bLogout_Click" Margin="20,0,0,0">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
                                         <core:InvokeCommandAction Command="{Binding LogoutCommand}"/>
@@ -97,17 +184,18 @@
                         </StackPanel>
                     </Grid>
                     <StackPanel x:Name="spBooking">
-                        <TextBlock x:Name="tbBooking" TextWrapping="Wrap" Text="Booking" FontSize="21.333"/>
+                        <TextBlock x:Name="tbBooking" TextWrapping="Wrap" Text="Booking" FontSize="21.333" Margin="20,0,0,0"/>
                         <ListView x:Name="lvBookingCart" ItemsSource="{Binding BookingCart, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <StackPanel Orientation="Horizontal">
-                            <Button Name="bCheckoutBooking" Content="Checkout" Width="110">
+                            <Button x:Name="bCheckoutBooking" Content="Checkout" Width="110" Background="#FF363434" Margin="20,0,0,0" Click="bCheckoutBooking_Click">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
                                         <core:InvokeCommandAction Command="{Binding SaveBookingCommand}"/>
+                                        <core:InvokeCommandAction Command="{Binding ClearBookingCommand}"/>
                                     </core:EventTriggerBehavior>
                                 </interactivity:Interaction.Behaviors>
                             </Button>
-                            <Button x:Name="bCancelBooking" Content="Cancel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110">
+                            <Button x:Name="bCancelBooking" Content="Cancel" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Width="110" Background="#FF363434">
                                 <interactivity:Interaction.Behaviors>
                                     <core:EventTriggerBehavior EventName="Click">
                                         <core:InvokeCommandAction Command="{Binding ClearBookingCommand}"/>
@@ -115,6 +203,9 @@
                                 </interactivity:Interaction.Behaviors>
                             </Button>
                         </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="spContact" Height="44" Width="100" Margin="20,400,0,0" HorizontalAlignment="Left">
+                        <Button x:Name="bContact" Content="Contact" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF535252" Click="bContact_Click"/>
                     </StackPanel>
                 </StackPanel>
             </StackPanel>

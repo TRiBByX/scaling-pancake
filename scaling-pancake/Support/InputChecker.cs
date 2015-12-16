@@ -8,17 +8,18 @@ namespace scaling_pancake
 {
     public static class InputChecker
     {
-        public static void NullChecker(string input)
+        public static void NullOrEmptyChecker(string input)
         {
-            if (input == null)
+            if (string.IsNullOrEmpty(input)) /*vi tjekker Null og Empty */
             {
+                
                 throw new ArgumentNullException();
             } 
         }
 
         public static void NegativeNumberChecker(int input)
         {
-            if (input > 1)
+            if (input < 1) 
             {
                 throw new ArgumentOutOfRangeException();
             }
