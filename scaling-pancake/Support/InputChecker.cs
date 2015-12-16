@@ -10,7 +10,7 @@ namespace scaling_pancake
     {
         public static void NullOrEmptyChecker(string input)
         {
-            if (string.IsNullOrEmpty(input)) /*vi tjekker Null og Empty */
+            if (string.IsNullOrEmpty(input)) // Vi tjekker Null og Empty
             {
                 
                 throw new ArgumentNullException();
@@ -27,7 +27,7 @@ namespace scaling_pancake
 
         public static void DateChecker(DateTime time1, DateTime time2)
         {
-            if (time2 < time1)
+            if (time2 > time1)
             {
                 throw new ArgumentOutOfRangeException();
             }

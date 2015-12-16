@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Microsoft.VisualStudio.TestPlatform.UnitTestFramework;
 using scaling_pancake;
 
@@ -17,7 +14,6 @@ namespace ScalingPancakeUnitTests
         }
 
         [TestMethod]
-        
         public void CheckPasswordIsNull()
         {
             try

@@ -22,23 +22,21 @@ namespace scaling_pancake
         {
             InitializeComponent();
 
-            _bodyStackPanels = new List<StackPanel> { spHome, spCreateUser, spUserAccount, spUserCreated, spContactInfo, spCard, spPayPal, spCash, spBitCoin };
+            _bodyStackPanels = new List<StackPanel> { spHome, spCreateUser, spUserAccount, spUserCreated, spContactInfo, spCard, spPayPal, spCash, spBitCoin, spCheckout };
             _bodyToggleButtons = new List<ToggleButton> { tbCreateUser };
             _homeStackPanels = new List<StackPanel> { spHomes, spTrips, spSelectedHome };
             _homeMenuToggleButtons = new List<ToggleButton> { tbHomes, tbTrips };
             _accountStackPanels = new List<StackPanel> { spLogin, spAccount };
 
             // Add Homes here for now.
-            HomeHandler.AddHome("qwe", 2, 42);
-            HomeHandler.SaveHomes();
+            //HomeHandler.AddHome("Boulevard Arago 35", 2, 42);
+            //HomeHandler.AddHome("Rue Le Verrier 2", 5, 140);
+            //HomeHandler.AddHome("Avenue Carnot 76", 4, 90);
+            //HomeHandler.SaveHomes();
 
-            CustomerHandler.AddCustomer("Dan", "Dan@hej.dan", "123456");
-            CustomerHandler.SaveCustomers();
-
-            CustomerHandler.AddCustomer("Dan", "Dan@hej.dan", "123456");
-
-            //CustomerHandler.LoadCustomers();
-            //HomeHandler.LoadHomes();
+            CustomerHandler.LoadCustomers();
+            HomeHandler.LoadHomes();
+            BookingHandler.LoadBookings();
 
             spCreateUser.Visibility = Visibility.Collapsed;
             spUserAccount.Visibility = Visibility.Collapsed;
@@ -117,16 +115,6 @@ namespace scaling_pancake
         private void LvHomes_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ToggleMenu(null, spSelectedHome, _homeStackPanels, _homeMenuToggleButtons);
-        }
-
-        private void tbBookHome_Click(object sender, RoutedEventArgs e)
-        {
-            // Not implemented yet.
-        }
-
-        private void bCheckoutBooking_OnClick(object sender, RoutedEventArgs e)
-        {
-            // Not implemented yet.
         }
 
         private void bCreateUser_Click(object sender, RoutedEventArgs e)

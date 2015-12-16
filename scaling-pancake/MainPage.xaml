@@ -24,16 +24,16 @@
             <StackPanel x:Name="spHead" Orientation="Horizontal" Background="#FF3E3C3C">
                 <Button x:Name="bTitel" Content="France Vacances" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" FontSize="48" BorderThickness="0" Click="bTitel_Click" ContentTemplate="{StaticResource Logo}"/>
             </StackPanel>
-            <StackPanel x:Name="spBody" Orientation="Horizontal">
-                <Grid x:Name="gBody" Height="908" Width="1604" Margin="20,0,0,0" HorizontalAlignment="Center">
-                    <StackPanel x:Name="spHome" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsHidden="True">
+            <StackPanel x:Name="spBody" Orientation="Horizontal" Height="637">
+                <Grid x:Name="gBody" Width="1050" Margin="20,0,0,0" HorizontalAlignment="Center">
+                    <StackPanel x:Name="spHome" HorizontalAlignment="Left" VerticalAlignment="Top" Height="637" Width="1040">
                         <StackPanel x:Name="spHomeMenu" Orientation="Horizontal">
                             <ToggleButton x:Name="tbHomes" Content="Homes" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbHomes_Onclick" Background="#FF363434" Margin="20,20,20,0"/>
                             <ToggleButton x:Name="tbTrips" Content="Trips" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Click="tbTrips_Onclick" Background="#FF363434" Margin="0,20,0,0"/>
                         </StackPanel>
                         <Grid x:Name="gHome">
-                            <StackPanel x:Name="spHomes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
-                                <ListView x:Name="lvHomes" Height="100" ItemsSource="{Binding Homes}" SelectionChanged="LvHomes_OnSelectionChanged" SelectedIndex="{Binding SelectedHomeID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                            <StackPanel x:Name="spHomes" HorizontalAlignment="Left" VerticalAlignment="Top" Width="1040" Height="568" Margin="0,0,0,-393">
+                                <ListView x:Name="lvHomes" ItemsSource="{Binding Homes}" SelectionChanged="LvHomes_OnSelectionChanged" SelectedIndex="{Binding SelectedHomeID, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Height="550">
                                     <interactivity:Interaction.Behaviors>
                                         <core:EventTriggerBehavior EventName="SelectionChanged">
                                             <core:InvokeCommandAction Command="{Binding SelectHomeCommand}"/>
@@ -41,8 +41,8 @@
                                     </interactivity:Interaction.Behaviors>
                                 </ListView>
                             </StackPanel>
-                            <StackPanel x:Name="spTrips" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                            <StackPanel x:Name="spSelectedHome" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400">
+                            <StackPanel x:Name="spTrips" HorizontalAlignment="Left" VerticalAlignment="Top" d:IsHidden="True"/>
+                            <StackPanel x:Name="spSelectedHome" HorizontalAlignment="Left" VerticalAlignment="Top" Width="400" d:IsHidden="True">
                                 <TextBlock x:Name="tbSelectedHomeAddress" TextWrapping="Wrap" FontSize="26.667" Text="{Binding SelectedHome.Address}"/>
                                 <DatePicker x:Name="dpStartDate" Date="{Binding StartDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,49,20" HorizontalAlignment="Stretch"/>
                                 <DatePicker x:Name="dpEndDate" Date="{Binding EndDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="20,0,65,20" HorizontalAlignment="Stretch"/>
@@ -145,17 +145,12 @@
                     		<Run Text="NW1 6XE "/>
                         </TextBlock>
                     </StackPanel>
-                    <StackPanel x:Name="spCheckout" Margin="0,10,10,10" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition">
-                        <TextBlock x:Name="textBlock7" TextWrapping="Wrap" HorizontalAlignment="Center" FontSize="24" Margin="617,80,565,0" Height="91" Width="412" VerticalAlignment="Bottom" TextAlignment="Center">
-                        	<Run Text="Thank you for your purchase."/>
-                        	<LineBreak/>
-                        	<Run/>
-                        	<LineBreak/>
-                        	<Run Text="Your order is now being proceeded"/>
-                        </TextBlock>
+                    <StackPanel x:Name="spCheckout" Margin="0,10,10,10" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" d:IsHidden="True">
+                        <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Text="Thank you for your purchase." FontSize="24"/>
+                        <TextBlock x:Name="textBlock7" TextWrapping="Wrap" Text="Your order is now bein processed." FontSize="24"/>
                     </StackPanel>
                 </Grid>
-                <StackPanel x:Name="spSidebar" Height="938" Width="298" VerticalAlignment="Top" Background="#FF7E7E7E">
+                <StackPanel x:Name="spSidebar" Height="637" Width="298" VerticalAlignment="Top" Background="#FF7E7E7E">
                     <Grid x:Name="gAccount" Margin="0,50,0,10">
                         <StackPanel x:Name="spLogin" HorizontalAlignment="Left" VerticalAlignment="Top">
                             <TextBlock x:Name="tbLogin" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Login" FontSize="21.333" Margin="20,0,0,0"/>
@@ -204,7 +199,7 @@
                             </Button>
                         </StackPanel>
                     </StackPanel>
-                    <StackPanel x:Name="spContact" Height="44" Width="100" Margin="20,400,0,0" HorizontalAlignment="Left">
+                    <StackPanel x:Name="spContact" Height="44" Width="100" Margin="20,300,0,0" HorizontalAlignment="Left">
                         <Button x:Name="bContact" Content="Contact" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="#FF535252" Click="bContact_Click"/>
                     </StackPanel>
                 </StackPanel>

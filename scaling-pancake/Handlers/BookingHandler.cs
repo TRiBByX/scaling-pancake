@@ -32,7 +32,7 @@ namespace scaling_pancake
         
         public static void ClearBookingCart()
         {
-            BookingCart = new ObservableCollection<Home>();
+            BookingCart.Clear();
             SelectedBooking = new Booking();
         }
 
